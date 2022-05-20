@@ -1,5 +1,6 @@
 import { Cell } from './Cell'
 import { solution, unicodeSplit } from '../../lib/words'
+import { formatPhoneCells } from './Grid'
 
 type Props = {
   guess: string
@@ -11,14 +12,15 @@ export const CurrentRow = ({ guess, className }: Props) => {
   const emptyCells = Array.from(Array(solution.length - splitGuess.length))
   const classes = `flex justify-center mb-1 ${className}`
 
+  const cells = splitGuess.map((letter, i) => (
+    <Cell key={i} value={letter} />
+  )).concat(
+    emptyCells.map((_, i) => (
+    <Cell key={splitGuess.length + i} />
+  )))
   return (
     <div className={classes}>
-      {splitGuess.map((letter, i) => (
-        <Cell key={i} value={letter} />
-      ))}
-      {emptyCells.map((_, i) => (
-        <Cell key={i} />
-      ))}
+      {formatPhoneCells(cells)}
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { MAX_CHALLENGES } from '../../constants/settings'
 import { CompletedRow } from './CompletedRow'
 import { CurrentRow } from './CurrentRow'
 import { EmptyRow } from './EmptyRow'
+import { Cell } from './Cell'
 
 type Props = {
   solution: string
@@ -41,4 +42,16 @@ export const Grid = ({
       ))}
     </>
   )
+}
+
+export const formatPhoneCells = (cells: JSX.Element[]) => {
+  if (cells.length != 10) {
+    throw new Error("Must have 10 cell digits for phone number")
+  }
+  const phone_cells = cells.slice(0, 3)
+  phone_cells.push(<Cell value='-' isCompleted={true} key={10} />)
+  phone_cells.push(...cells.slice(3, 6))
+  phone_cells.push(<Cell value='-' isCompleted={true} key={11} />)
+  phone_cells.push(...cells.slice(6, 10))
+  return phone_cells
 }

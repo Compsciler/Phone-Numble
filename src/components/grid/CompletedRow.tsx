@@ -1,6 +1,7 @@
 import { getGuessStatuses } from '../../lib/statuses'
 import { Cell } from './Cell'
 import { unicodeSplit } from '../../lib/words'
+import { formatPhoneCells } from './Grid'
 
 type Props = {
   solution: string
@@ -14,7 +15,7 @@ export const CompletedRow = ({ solution, guess, isRevealing }: Props) => {
 
   return (
     <div className="flex justify-center mb-1">
-      {splitGuess.map((letter, i) => (
+      {formatPhoneCells(splitGuess.map((letter, i) => (
         <Cell
           key={i}
           value={letter}
@@ -23,7 +24,7 @@ export const CompletedRow = ({ solution, guess, isRevealing }: Props) => {
           isRevealing={isRevealing}
           isCompleted
         />
-      ))}
+      )))}
     </div>
   )
 }
