@@ -10,7 +10,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose} isWide={true}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Guess my phone number in 6 tries. After each guess, the color of the tiles will
+        Guess my phone number in 8 tries. After each guess, the color of the tiles will
         change to show how close you are to calling me.
       </p>
       <p className="text-sm text-gray-500 dark:text-gray-300">
