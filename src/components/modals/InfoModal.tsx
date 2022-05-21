@@ -38,11 +38,16 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="3" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The digit 3 is in the number and in the correct spot.
+        The first digit 3 is in the number and in the correct spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="2" />
+        <Cell
+          isRevealing={true}
+          isCompleted={true}
+          value="2"
+          status="present"
+        />
         <Cell value="7" />
         <Cell value="1" />
         <Cell value='-' />
@@ -57,11 +62,16 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value='-' />
         <Cell value="1" />
         <Cell value="8" />
-        <Cell value="2" />
+        <Cell
+          isRevealing={true}
+          isCompleted={true}
+          value="2"
+          status="absent"
+        />
         <Cell value="8" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The digit 2 appears exactly once in the word but not in the fifth (or first or ninth) spot.
+        The digit 2 appears exactly twice in the number but not in the first or fifth (or ninth) spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
@@ -75,7 +85,12 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value='-' />
         <Cell value="7" />
         <Cell value="2" />
-        <Cell isRevealing={true} isCompleted={true} value="9" status="absent" />
+        <Cell
+          isRevealing={true}
+          isCompleted={true}
+          value="9"
+          status="absent"
+        />
         <Cell value="0" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
