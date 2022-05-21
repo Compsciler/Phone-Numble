@@ -3,6 +3,7 @@ import { unicodeSplit } from './words'
 import { GAME_TITLE } from '../constants/strings'
 import { MAX_CHALLENGES } from '../constants/settings'
 import { UAParser } from 'ua-parser-js'
+import { default as GraphemeSplitter } from 'grapheme-splitter'
 
 const webShareApiDeviceTypes: string[] = ['mobile', 'smarttv', 'wearable']
 const parser = new UAParser()
@@ -58,7 +59,7 @@ export const generateEmojiGrid = (
       const status = getGuessStatuses(solution, guess)
       const splitGuess = unicodeSplit(guess)
 
-      return splitGuess
+      const emojiCells = splitGuess
         .map((_, i) => {
           switch (status[i]) {
             case 'correct':
@@ -70,6 +71,10 @@ export const generateEmojiGrid = (
           }
         })
         .join('')
+      const graphemes = new GraphemeSplitter().splitGraphemes(emojiCells)
+      graphemes.splice(3, 0, '-')
+      graphemes.splice(7, 0, '-')
+      return graphemes.join('')
     })
     .join('\n')
 }
