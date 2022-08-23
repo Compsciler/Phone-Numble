@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'https://phonenumblegame.herokuapp.com/api/scores'
+const baseUrl = 'https://phonenumble.herokuapp.com/api/scores'
 
 /*
 const getAll = () => {
