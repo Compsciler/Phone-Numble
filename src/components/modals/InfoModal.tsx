@@ -14,7 +14,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         change to show how close you are to calling me.
       </p>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        My phone number uses the US format and can be any number 
+        My phone number uses the US format and can be any number
         from 000-000-0000 to 999-999-9999.
       </p>
 

@@ -1,8 +1,11 @@
-import { solution } from '../../lib/words'
 import { Cell } from './Cell'
 import { formatPhoneCells } from './Grid'
 
-export const EmptyRow = () => {
+type Props = {
+  solution: string
+}
+
+export const EmptyRow = ({ solution }: Props) => {
   const emptyCells = Array.from(Array(solution.length))
 
   return (

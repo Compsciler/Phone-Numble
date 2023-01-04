@@ -19,11 +19,12 @@ export const shareStatus = (
   isHardMode: boolean,
   isDarkMode: boolean,
   isHighContrastMode: boolean,
+  isPlayingRandom: boolean,
   handleShareToClipboard: () => void
 ) => {
   const textToShare = getTextToShare(solution, solutionIndex, guesses, lost,
-    isHardMode, isDarkMode, isHighContrastMode)
-  
+    isHardMode, isDarkMode, isHighContrastMode, isPlayingRandom)
+
   const shareData = { text: textToShare }
 
   let shareSuccess = false
@@ -51,10 +52,11 @@ export const getTextToShare = (
   isHardMode: boolean,
   isDarkMode: boolean,
   isHighContrastMode: boolean,
+  isPlayingRandom: boolean,
 ) => {
+  const solutionIndexOrUnlimited = isPlayingRandom ? 'Unlimited' : solutionIndex
   return (
-    `${GAME_TITLE} ${solutionIndex} ${
-      lost ? 'X' : guesses.length
+    `${GAME_TITLE} ${solutionIndexOrUnlimited} ${lost ? 'X' : guesses.length
     }/${MAX_CHALLENGES}${isHardMode ? '*' : ''}\n\n` +
     generateEmojiGrid(
       solution,
